@@ -1,0 +1,7 @@
+div.stone {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: blue;
+	margin-bottom: 5px;
+}
