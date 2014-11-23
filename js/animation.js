@@ -3,52 +3,61 @@
 	==========================
 */
 
-function animateMe(targetElement, speed, right) {
-  //console.log(speed);
+function animateMe(target, speed, up) {
 
   var properties;
   var complete = function() {
     //stop the last animation;
-    animateMe(this, getSpeed(targetElement), !right);
+    animateMe(this, getSpeed(target), !up);
   };
 
-  if (right) {
-    properties = {'left': '400px'};
+  if (up) {
+    properties = { 'bottom': '+=400px' };
   }
   else {
-    //since object is on left, play sample
-    targetElement.play();
-    properties = {'left': '10px'};
+  	target.play(); //since object is on left, play sample
+    properties = { 'bottom': '-=400px' };
   }
   
-  $(targetElement).stop().animate(properties,
-                                  speed,
-                                  complete);
+  $(target).stop().animate(properties,
+                           speed,
+                           complete);
 };
 
-//given on object ->
+//	HTML BUTTON -> VOID
+//
+//	Given an html button, increments the speed
+//	of the stone it controls.  
+//	The affect will not be visible until
+//	the next roung of animation
+function changeAnimation( object ) {
+	var buttonID  = $(object).attr('id');
+	var stone     = getStone($(object))
+	var origSpeed = getSpeed(stone);
+
+	if (buttonID === 'faster') {
+		$(stone).attr('speed', origSpeed - 1000);
+	}
+	else {
+		$(stone).attr('speed', origSpeed + 1000);
+	}
+}
+
+// HTML OBJECT -> Int
 //returns the speed and parses to an int
 function getSpeed( object ) {
   return parseInt($(object).attr('speed'));
 }
-/*
-function setSpeed( object ) {
 
-
-  //var target = $(object).parent().children('first:child').children('first:child');
-
-
-  if ($(object).attr('id') === 'faster') {
-      
-      $(target).attr('speed', parseInt($(target.attr('speed')) - 100));
-    }
-
-    else if ($(object).attr('id') === 'slower') {
-      $(target).attr('speed', parseInt($(target.attr('speed')) + 100));
-    }
-
-    else {
-      console.log('something went wrong');
-    }
+//HTML Button -> Stone
+//
+//given a button, returns the stone that it controls
+function getStone( object ) {
+	//go to the top of the bar
+	var result = $( object ).parents('.bar');
+	//get the first child
+	result = result.children(':first-child');
+	//get the first child again
+	result = result.children(':first-child');
+	return result;
 }
-*/

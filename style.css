@@ -4,23 +4,31 @@ html, body {
 	z-index: 0;
 }
 
-body > div {
-	display: inline-block;
+div#controls {
+width: 482px;
+margin: auto;
 }
 
-#controls > div {
-height: 500px;
-border: 1px solid;
-margin-bottom: 1em;
-display: inline-block;
+div.bar {
+	width: 60px;
+	height: 500px;
+	float: left;
+	margin-right: 50px;
 }
 
-#controls > div > div {
+div.bar > div:first-child {
+	border: 1px solid #ccc;
+	height: 90%;
 	position: relative;
-	bottom: 0;
 }
 
 div.stone {
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;

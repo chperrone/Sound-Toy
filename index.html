@@ -4,7 +4,7 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="style.css">
 
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script src="js/audio.js"></script>
 <script src="js/animation.js"></script>
@@ -12,35 +12,60 @@
 </head>
 <body>
 
+<div class="container">
 <div id="controls">
 	<div class="bar">
 		<div>
-			<div class="stone" id="pad1" data-sound="audio/piano1.wav" speed="10000"></div>
+			<div class="stone"
+				 id="pad1" 
+				 data-sound="audio/piano1.wav" 
+				 speed="10000">
+			</div>
 		</div>
+
 		<div><button id="faster">^</button></div>
 		<div><button id="slower">v</button></div>
 	</div>
+
 	<div class="bar">
 		<div>
-			<div class="stone" id="pad2" data-sound="audio/piano2.wav" speed="2000"></div>
+			<div class="stone"
+				 id="pad2" 
+				 data-sound="audio/piano2.wav" 
+				 speed="2000">
+			</div>
 		</div>
+
 		<div><button id="faster">^</button></div>
 		<div><button id="slower">v</button></div>
 	</div>
+
 	<div class="bar">
 		<div>
-			<div class="stone" id="pad3" data-sound="audio/piano3.wav" speed="11000"></div>
+			<div class="stone"
+				 id="pad3"
+				 data-sound="audio/piano3.wav" 
+				 speed="11000">
+			</div>
 		</div>
+
 		<div><button id="faster">^</button></div>
 		<div><button id="slower">v</button></div>
 	</div>
+
 	<div class="bar">
 		<div>
-			<div class="stone" id="pad4" data-sound="audio/chimes.mp3" speed="2000"></div>
+			<div class="stone" 
+				 id="pad4"
+			 	 data-sound="audio/chimes.mp3"
+			 	 speed="2000">
+			</div>
 		</div>
+
 		<div><button id="faster">^</button></div>
 		<div><button id="slower">v</button></div>
 	</div>
+</div>
 </div>
 
 

@@ -1,3 +1,14 @@
+/*
+///////////////////////////////////////////////////////////////////////////////
+
+AUDIO COMPONENTS
+----------------
+
+Authored: Charles Perrone
+
+///////////////////////////////////////////////////////////////////////////////
+*/
+
 function loadFiles( object, url ) {
   var request = new XMLHttpRequest();
   request.open('GET', url, true);
@@ -20,14 +31,13 @@ function addAudioProperties(object) {
     object.play = function () {
         var s = context.createBufferSource();
         s.buffer = object.buffer;
-        
         var convolver = context.createConvolver();
         convolver.buffer = irHall.buffer;
 
         s.connect(convolver);
-        //object.volume.connect(context.destination);
+        object.volume.connect(convolver);
         convolver.connect(context.destination);
-        //s.connect(context.destination);
+
         s.start(0);
         object.s = s;
     }
