@@ -5,21 +5,44 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="js/my copy.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/ambient.js"></script>
 </head>
 <body>
 
-<div class="stone" id="pad1" data-sound="audio/piano1.wav"></div>
-<div class="stone" data-sound="audio/piano2.wav"></div>
-<div class="stone" data-sound="audio/piano3.wav"></div>
-<div class="stone" data-sound="audio/chimes.mp3"></div>
-
-<div data-pad="pad1" id="cp">
-    <h2>TL Control</h2>
-    <h3>top left pad</h3>
-    <label for"volume 1">Volume</label>
-    <input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume1">
+<div id="controls">
+	<div class="bar">
+		<div>
+			<div class="stone" id="pad1" data-sound="audio/piano1.wav" speed="10000"></div>
+		</div>
+		<div><button id="faster">^</button></div>
+		<div><button id="slower">v</button></div>
+	</div>
+	<div class="bar">
+		<div>
+			<div class="stone" id="pad2" data-sound="audio/piano2.wav" speed="2000"></div>
+		</div>
+		<div><button id="faster">^</button></div>
+		<div><button id="slower">v</button></div>
+	</div>
+	<div class="bar">
+		<div>
+			<div class="stone" id="pad3" data-sound="audio/piano3.wav" speed="11000"></div>
+		</div>
+		<div><button id="faster">^</button></div>
+		<div><button id="slower">v</button></div>
+	</div>
+	<div class="bar">
+		<div>
+			<div class="stone" id="pad4" data-sound="audio/chimes.mp3" speed="2000"></div>
+		</div>
+		<div><button id="faster">^</button></div>
+		<div><button id="slower">v</button></div>
+	</div>
 </div>
+
 
 </body>
 </html>

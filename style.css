@@ -1,7 +1,30 @@
+html, body {
+	margin: 0;
+	height: 100%;
+	z-index: 0;
+}
+
+body > div {
+	display: inline-block;
+}
+
+#controls > div {
+height: 500px;
+border: 1px solid;
+margin-bottom: 1em;
+display: inline-block;
+}
+
+#controls > div > div {
+	position: relative;
+	bottom: 0;
+}
+
 div.stone {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
 	background-color: blue;
 	margin-bottom: 5px;
+	z-index: 3;
 }
