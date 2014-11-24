@@ -2,11 +2,19 @@ html, body {
 	margin: 0;
 	height: 100%;
 	z-index: 0;
+	background-color: rgb(255, 224, 166);
 }
 
-div#controls {
-width: 482px;
-margin: auto;
+.container {
+	width: 95%;
+	margin: auto;
+}
+
+div#sequencer {
+	width: 94%;
+	margin: auto;
+	padding: 1em;
+	display: inline-block;
 }
 
 div.bar {
@@ -16,10 +24,20 @@ div.bar {
 	margin-right: 50px;
 }
 
+div.ripple {
+	height: 0;
+	width: 0;
+	color: white;
+	transition: all 5s ease;
+}
+
 div.bar > div:first-child {
-	border: 1px solid #ccc;
-	height: 90%;
+	height: 75%;
 	position: relative;
+}
+
+div#controls {
+	height: 25%;
 }
 
 div.stone {
@@ -32,7 +50,12 @@ div.stone {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	background-color: blue;
+	background-color: rgb(140, 140, 197);
 	margin-bottom: 5px;
 	z-index: 3;
+	transition: background-color 2s;
+}
+
+input.fader {
+	transform: rotate(-90deg);
 }

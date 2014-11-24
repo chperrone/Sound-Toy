@@ -13,58 +13,88 @@
 <body>
 
 <div class="container">
-<div id="controls">
+<div id="sequencer">
 	<div class="bar">
 		<div>
 			<div class="stone"
 				 id="pad1" 
-				 data-sound="audio/piano1.wav" 
+				 data-sound="audio/epiano1.mp3" 
 				 speed="10000">
 			</div>
 		</div>
 
-		<div><button id="faster">^</button></div>
-		<div><button id="slower">v</button></div>
+		<div id="controls">
+			<button id="faster">^</button>
+			<button id="slower">v</button>
+			<input class="fader" type="range" min="0" max="1" step=".01">
+		</div>
 	</div>
 
 	<div class="bar">
 		<div>
 			<div class="stone"
 				 id="pad2" 
-				 data-sound="audio/piano2.wav" 
-				 speed="2000">
+				 data-sound="audio/epiano2.mp3" 
+				 speed="8000">
+				 <div class="ripple"></div>
 			</div>
 		</div>
 
-		<div><button id="faster">^</button></div>
-		<div><button id="slower">v</button></div>
+		<div id="controls">
+			<button id="faster">^</button>
+			<button id="slower">v</button>
+			<input class="fader" type="range" min="0" max="1" step=".01">
+		</div>
 	</div>
 
 	<div class="bar">
 		<div>
 			<div class="stone"
 				 id="pad3"
-				 data-sound="audio/piano3.wav" 
-				 speed="11000">
+				 data-sound="audio/epiano3.mp3" 
+				 speed="19000">
 			</div>
 		</div>
 
-		<div><button id="faster">^</button></div>
-		<div><button id="slower">v</button></div>
+		<div id="controls">
+			<button id="faster">^</button>
+			<button id="slower">v</button>
+			<input class="fader" type="range" min="0" max="1" step=".01">
+		</div>
 	</div>
 
 	<div class="bar">
 		<div>
 			<div class="stone" 
 				 id="pad4"
-			 	 data-sound="audio/chimes.mp3"
-			 	 speed="2000">
+			 	 data-sound="audio/epiano4.mp3"
+			 	 speed="6000">
 			</div>
 		</div>
 
-		<div><button id="faster">^</button></div>
-		<div><button id="slower">v</button></div>
+		<div id="controls">
+			<button id="faster">^</button>
+			<button id="slower">v</button>
+			<input class="fader" type="range" min="0" max="1" step=".01">
+		</div>
 	</div>
+
+	<div class="bar">
+		<div>
+			<div class="stone" 
+				 id="pad4"
+			 	 data-sound="audio/epiano5.mp3"
+			 	 speed="20000">
+			</div>
+		</div>
+
+		<div id="controls">
+			<button id="faster">^</button>
+			<button id="slower">v</button>
+			<input class="fader" type="range" min="0" max="1" step=".01">
+		</div>
+	</div>
+
 </div>
 </div>
 
