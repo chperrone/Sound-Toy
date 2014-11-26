@@ -1,27 +1,32 @@
 /* ===========================================
 		ANIMATION SCRIPTS
-	==========================
+	==========================================
 */
 
-function animateMe(target, speed, up) {
+// dir (boolean): true if up, false if down
+function animateMe(target) {
 
-  var properties;
-  var complete = function() { animateMe(this, getSpeed(target), !up); };
+	var curPos = $(target).position().top;
+	var bottom = 445; //the lowest an element will go
+	var top    = -5;   //the highest an element can go
 
-  if (up) {
+	if (curPos === bottom) {
+		$(target).css({ 'transform': 'translate(0px, -450px)',
+						'transition': getSpeed($(target)) + ' ease'});
+	}
+	else if (curPos === top) {
+		$(target).css('transform', 'translate(0px, 0px)');
+		target.play();
+	}
 
-    properties = { 'bottom': '+=300px' };
-  }
-  else {
-  	target.play(); //since object is on left, play sample
-  	ripple(target);
-    properties = { 'bottom': '-=300px' };
-  }
-  
-  $(target).stop().animate(properties,
-                           speed,
-                           complete);
-};
+	else { alert('didnt hit boundary');}
+}
+
+// HTML OBJECT -> Int
+//returns the speed and parses to an int
+function getSpeed( object ) {
+  return $(object).attr('speed');
+}
 
 //	HTML BUTTON -> VOID
 //
@@ -42,12 +47,6 @@ function changeSampleSpeed( object ) {
 	}
 }
 
-// HTML OBJECT -> Int
-//returns the speed and parses to an int
-function getSpeed( object ) {
-  return parseInt($(object).attr('speed'));
-}
-
 //HTML Button -> Stone
 //
 //given a button, returns the stone that it controls
@@ -65,7 +64,7 @@ function getStone( object ) {
 function ripple( object ) {
 	var color = $(object).css('background-color');
 
-	if(color === 'white') {
+	if(color === 'rgb(255, 255, 255)') {
 		$(object).css('background-color', 'rgb(140, 140, 197)')
 	}
 

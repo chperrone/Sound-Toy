@@ -13,14 +13,22 @@
 <body>
 
 <div class="container">
+
+<div class="pebble-bucket">
+	<div class="pebble" id="piano">Piano</div>
+	<div class="pebble" id="voice">Voice</div>
+	<div class="pebble" id="strings">Strings</div>
+</div>
+
 <div id="sequencer">
+
+	<div class="droppable"></div>
+
 	<div class="bar">
-		<div>
-			<div class="stone"
-				 id="pad1" 
-				 data-sound="audio/epiano1.mp3" 
-				 speed="10000">
-			</div>
+		<div class="stone"
+			 id="pad1" 
+			 data-sound="audio/epiano1.mp3" 
+			 speed="1s">
 		</div>
 
 		<div id="controls">
@@ -31,13 +39,10 @@
 	</div>
 
 	<div class="bar">
-		<div>
-			<div class="stone"
-				 id="pad2" 
-				 data-sound="audio/epiano2.mp3" 
-				 speed="8000">
-				 <div class="ripple"></div>
-			</div>
+		<div class="stone"
+			 id="pad2" 
+			 data-sound="audio/epiano2.mp3" 
+			 speed="5s">
 		</div>
 
 		<div id="controls">
@@ -52,7 +57,7 @@
 			<div class="stone"
 				 id="pad3"
 				 data-sound="audio/epiano3.mp3" 
-				 speed="19000">
+				 speed="3s">
 			</div>
 		</div>
 
@@ -68,7 +73,7 @@
 			<div class="stone" 
 				 id="pad4"
 			 	 data-sound="audio/epiano4.mp3"
-			 	 speed="6000">
+			 	 speed="4s">
 			</div>
 		</div>
 
@@ -84,7 +89,7 @@
 			<div class="stone" 
 				 id="pad4"
 			 	 data-sound="audio/epiano5.mp3"
-			 	 speed="20000">
+			 	 speed="8s">
 			</div>
 		</div>
 

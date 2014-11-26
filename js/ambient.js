@@ -7,21 +7,39 @@ $(function() {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   context = new AudioContext();
   irHall = new reverbObject('../audio/3000CStreetGarageStairwell.wav');
-  mainDelay = context.createDelay();
-  mainDelay.delayTime.value = 0.5;
-  delayGain = context.createGain();
-  delayGain.gain.value = 0.9;
+  //mainDelay = context.createDelay();
+  //mainDelay.delayTime.value = 0.5;
+  //delayGain = context.createGain();
+  //delayGain.gain.value = 0.7;
   filter = context.createBiquadFilter();
   filter.type = 'lowpass';
   filter.frequency.value = 440;
 
-  delayGain.connect(mainDelay);
-  mainDelay.connect(delayGain);
-  mainDelay.connect(filter);
-  mainDelay.connect(context.destination);
-  filter.connect(context.destination);
+  //delayGain.connect(mainDelay);
+  //mainDelay.connect(delayGain);
+  //mainDelay.connect(filter);
+  //mainDelay.connect(context.destination);
+  //filter.connect(context.destination);
 
-  $('div.stone').each(function() {
+  $('.pebble-bucket .pebble').each(function() {
+    $(this).draggable();
+  });
+
+  $('.droppable').each(function() {
+    $(this).droppable({ 
+        accept: ".pebble#piano",
+        drop: function ( e, ui ) {
+          $(this).append(function() {
+
+            props = { 'position': 'static', 'top': '0', 'left': '0' };
+            return $(ui.draggable).css(props);
+          });
+        }
+
+     });
+  });
+
+  $('#sequencer div.stone').each(function() {
     addAudioProperties( this );
   });
 
@@ -37,10 +55,26 @@ $(function() {
     volume.gain.value = $( this ).val();
   });
 
-  animateMe( $('div#pad1'), getSpeed($('div#pad1')), true );
-  animateMe( $('div#pad2'), getSpeed($('div#pad2')), true);
-  animateMe( $('div#pad3'), getSpeed($('div#pad3')), true);
-  animateMe( $('div#pad4'), getSpeed($('div#pad4')), true);
-  animateMe( $('div#pad5'), getSpeed($('div#pad5')), true);
+  $("div.stone").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    animateMe(this);  
+  });
+
+  $('div.stone').click(function() {
+    animateMe(this);
+  });
+
+  //animateMe( $('div#pad1'));
+  //animateMe($('div#pad2'));
+  //animateMe( $('div#pad3'), true);
+  //animateMe( $('div#pad4'), true);
+  //animateMe( $('div#pad5'), true);
 
 });
+
+/*Object -> Object
+
+Takes an object and removes particular css offset rules
+*/
+function removePosition( object ) {
+  return $( object ).css({ 'position': 'static', 'top': '0', 'left': '0' });
+}
