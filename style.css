@@ -11,9 +11,8 @@ html, body {
 }
 
 .droppable {
-height: 150px;
-width: 150px;
-background-color: blue;
+height: 149px;
+width: 149px;
 }
 
 div#sequencer {
@@ -23,6 +22,7 @@ div#sequencer {
 	padding: 1em;
 	display: inline-block;
 	background-color: #ccc;
+	border-radius: 25px;
 }
 
 div.pebble-bucket {
@@ -31,6 +31,10 @@ div.pebble-bucket {
 	background-color: #ccc;
 	width: 30%;
 	height: 200px;
+}
+
+div.pebble-bucket > li {
+	float: left;
 }
 
 div.pebble {
@@ -48,6 +52,8 @@ div.bar {
 	height: 500px;
 	float: left;
 	margin-right: 50px;
+	border: 1px solid #bbb;
+	border-radius: 40px;
 }
 
 div.ripple {
@@ -61,7 +67,7 @@ div#controls {
 	height: 25%;
 }
 
-div.stone {
+div.slot {
 	position: absolute;
 	display: block;
 	left: 0;
@@ -70,11 +76,25 @@ div.stone {
 	margin: auto;
 	height: 50px;
 	width: 50px;
-	border-radius: 50%;
-	background-color: rgb(140, 140, 197);
 	margin-bottom: 5px;
-	z-index: 3;
-	transition: 3s ease;
+	border-bottom: 2px solid white;
+	background-color: #bbb;
+	border-radius: 50%;
+}
+
+div.stone {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	z-index: 2;
+}
+
+div.pianos {
+	background-color: rgb(140, 140, 197);
+}
+
+div.synths {
+	background-color: white;
 }
 
 input.fader {

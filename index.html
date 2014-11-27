@@ -15,21 +15,24 @@
 <div class="container">
 
 <div class="pebble-bucket">
-	<div class="pebble" id="piano">Piano</div>
-	<div class="pebble" id="voice">Voice</div>
-	<div class="pebble" id="strings">Strings</div>
+
+	<li id="pianos">
+		<div class="stone pianos" data-sound="audio/epiano1.mp3"></div>
+		<div class="stone pianos" data-sound="audio/epiano2.mp3"></div>
+		<div class="stone pianos" data-sound="audio/epiano3.mp3"></div>
+		<div class="stone pianos" data-sound="audio/epiano4.mp3"></div>
+		<div class="stone pianos" data-sound="audio/epiano5.mp3"></div>
+	</li>
+
+	<li id="synths">
+		<div class="stone synths" data-sound="audio/wubble.wav"></div>
+	</li>
 </div>
 
 <div id="sequencer">
 
-	<div class="droppable"></div>
-
 	<div class="bar">
-		<div class="stone"
-			 id="pad1" 
-			 data-sound="audio/epiano1.mp3" 
-			 speed="1s">
-		</div>
+		<div class="slot droppable" id="pad1" speed="5"></div>
 
 		<div id="controls">
 			<button id="faster">^</button>
@@ -39,11 +42,7 @@
 	</div>
 
 	<div class="bar">
-		<div class="stone"
-			 id="pad2" 
-			 data-sound="audio/epiano2.mp3" 
-			 speed="5s">
-		</div>
+		<div class="slot droppable" speed="6"></div>
 
 		<div id="controls">
 			<button id="faster">^</button>
@@ -53,13 +52,7 @@
 	</div>
 
 	<div class="bar">
-		<div>
-			<div class="stone"
-				 id="pad3"
-				 data-sound="audio/epiano3.mp3" 
-				 speed="3s">
-			</div>
-		</div>
+			<div class="slot droppable" id="pad3" speed="10"></div>
 
 		<div id="controls">
 			<button id="faster">^</button>
@@ -69,13 +62,7 @@
 	</div>
 
 	<div class="bar">
-		<div>
-			<div class="stone" 
-				 id="pad4"
-			 	 data-sound="audio/epiano4.mp3"
-			 	 speed="4s">
-			</div>
-		</div>
+			<div class="slot droppable" id="pad4" speed="12"></div>
 
 		<div id="controls">
 			<button id="faster">^</button>
@@ -85,13 +72,7 @@
 	</div>
 
 	<div class="bar">
-		<div>
-			<div class="stone" 
-				 id="pad4"
-			 	 data-sound="audio/epiano5.mp3"
-			 	 speed="8s">
-			</div>
-		</div>
+		<div class="slot droppable" id="pad4" speed="8"></div>
 
 		<div id="controls">
 			<button id="faster">^</button>
