@@ -6,19 +6,61 @@
 // dir (boolean): true if up, false if down
 function animateMe(target) {
 	var curPos = $(target).position().top;
-	var bottom = 443; //the lowest an element will go
+	var bottom = 393; //the lowest an element will go
 	var top    = -5;   //the highest an element can go
 	console.log(curPos);
 
 	if (curPos === bottom) {
-		$(target).css({ 'transform': 'translate(0px, -450px)',
+		$(target).css({ 'transform': 'translate(0px, -390px)',
 						'transition': getSpeed($(target)) + 's ease'});
 	}
 	else {
+		first  = $(target).children(':first-child')[0];
+		second = $(first).children(':first-child')[0];
+
 		$(target).css('transform', 'translate(0px, 0px)');
 		//select the actual html element and play
-		$(target).children(':first-child')[0].play();
+		if (hasExtraSample(target)) {
+			first.play();
+
+			if (willFire) {
+				setTimeout(function() { second.play() }, getFire());
+			}
+		}
+		else {
+			first.play();
+		}
 	}
+}
+
+function hasExtraSample(target) {
+	first  = $(target).children(':first-child')[0];
+	second = $(first).children(':first-child')[0];
+
+	if (typeof second === 'undefined') {
+		return false;
+	}
+	else {
+		return true;
+	} 
+}
+
+//a second sample has a 30% chance of firing every time
+function willFire() {
+	num = Math.floor((Math.random() * 10) + 1);
+
+	if (num === 1 || num === 2 || num === 3) {
+		return true;
+	}
+
+	else {
+		return false;
+	}
+}
+
+//return a random time between .5 seconds and 5 seconds
+function getFire() {
+	return Math.floor((Math.random() * 5000) + 500);
 }
 
 // HTML OBJECT -> Int

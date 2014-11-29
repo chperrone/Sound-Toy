@@ -35,13 +35,52 @@ $(function() {
     $(this).draggable();
   });
 
+  $(function() {
+    $( "#slider-vertical" ).slider({
+      orientation: "vertical",
+      range: "min",
+      min: 0,
+      max: 100,
+      value: 60,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.value );
+      }
+    });
+    $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+  });
+
+  //handles the dropping logic for an empty slot, a slot with a sample already loaded and a slot with two samples already loaded.
   $('.droppable').each(function() {
     $(this).droppable({ 
         accept: ".stone",
         drop: function ( e, ui ) {
-          props = { 'position': 'static', 'top': '0', 'left': '0' };
-          $(this).append($(ui.draggable).css(props)); 
-          animateMe(this);
+          //the center of the slot
+          var center = $(this).children(':first-child')[0];
+
+          //if there are no samples in the slot
+          if (typeof center === "undefined") {
+            props = { 'position': 'absolute', 'top': '0', 'left': '0' };
+            $(this).append($(ui.draggable).css(props)); 
+            animateMe(this);
+          }
+
+          //if there is one sample in the slot
+          /*
+          else {
+            var target = $(ui.draggable).css(props);
+            var source = $(target).data('sound');
+            var classes = target[0].classList;
+
+            result = '<div class="inner ' + classes[0] + ' ' + classes[1] + ' ' + classes[2] + ' ' + classes[3] + '" data-sound="' + source + '"></div>';
+            console.log(result);
+            $(target).remove();
+            $(center).append(result);
+          }
+          */
+          else {
+            $(ui.draggable).css(props).addClass('inner');
+            $(center).append($(ui.draggable));
+          }
         }
      });
   });
@@ -50,15 +89,36 @@ $(function() {
     addAudioProperties( this );
   });
 
+  $('.pebble-bucket div.stone').click(function() {
+    this.play();
+  });
+
   //changeSpeed functionality
-  $('button').click(function() {
+  $('button.speed').click(function() {
     changeSampleSpeed( this );
+  });
+
+  $('button#stop').click(function() {
+    var slot = getStone(this);
+    target = $(slot).children(':first-child')[0];
+    target.remove();
+    $(slot).css('transition', '');
+    props = { 'position': 'static', 'bottom': '0', 'left': '0' };
+    $(slot).css(props);
   });
 
   //main fader functionality
   $('input.fader').change(function() {
     var target = getStone( this );
-    var volume = target.prop( 'volume' );
+    var volume = $(target).children().prop( 'volume' );
+    try {
+      var example = $(target).children(':first-child').children().prop( 'volume' );
+      example.gain.value = $(this).val();
+    }
+    catch(err) { 
+      console.log(err);
+    };
+
     volume.gain.value = $( this ).val();
   });
 

@@ -27,7 +27,6 @@ function addAudioProperties( object ) {
     object.source = $(object).data('sound');
     loadFiles(object, object.source);   //set the object buffer
     object.volume = context.createGain();
-    //object.convolver = context.createConvolver();
 
     object.play = function () {
         var s = context.createBufferSource();
@@ -35,7 +34,8 @@ function addAudioProperties( object ) {
 
         //object.volume.connect(convolver);
         //convolver.connect(mainDelay);
-        s.connect(mainDelay);
+        s.connect(object.volume);
+        object.volume.connect(mainDelay);
         //object.convolver.connect(context.destination);
 
         //convolver.connect(context.destination);

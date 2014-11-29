@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	height: 100%;
 	z-index: 0;
-	background-color: rgb(255, 224, 166);
+	background-color: rgb(110, 110, 110);
 }
 
 .container {
@@ -11,18 +11,29 @@ html, body {
 }
 
 .droppable {
-height: 149px;
-width: 149px;
+	height: 149px;
+	width: 149px;
 }
 
 div#sequencer {
 	width: 64%;
+	height: 76%;
 	float: right;
 	margin: auto;
 	padding: 1em;
 	display: inline-block;
 	background-color: #ccc;
 	border-radius: 25px;
+	position: absolute;
+	top: 0;
+	bottom:0;
+	left: 0;
+	right: 0;
+}
+
+button {
+border-radius: 50%;
+background-color: white;
 }
 
 div.pebble-bucket {
@@ -30,26 +41,33 @@ div.pebble-bucket {
 	display: inline-block;
 	background-color: #ccc;
 	width: 30%;
-	height: 200px;
+	height: 590px;
+	background: white;
+	border-top-left-radius: 17px;
+	border-bottom-left-radius: 17px;
+	margin-right: 25px;
+	background: rgb(223, 179, 85);
 }
 
 div.pebble-bucket > li {
 	float: left;
+	list-style:none;
+	margin-right: 8px;
 }
 
 div.pebble {
-height: 50px;
-width: 50px;
-background-color: black;
-border-radius: 50%;
-display: inline-block;
-color: white;
+	height: 50px;
+	width: 50px;
+	background-color: black;
+	border-radius: 50%;
+	display: inline-block;
+	color: white;
 }
 
 div.bar {
 	position: relative;
 	width: 60px;
-	height: 500px;
+	height: 450px;
 	float: left;
 	margin-right: 50px;
 	border: 1px solid #bbb;
@@ -64,7 +82,10 @@ div.ripple {
 }
 
 div#controls {
-	height: 25%;
+position: relative;
+height: 25%;
+bottom: -468px;
+right: -6px;
 }
 
 div.slot {
@@ -77,7 +98,7 @@ div.slot {
 	height: 50px;
 	width: 50px;
 	margin-bottom: 5px;
-	border-bottom: 2px solid white;
+	border-bottom: 2px solid rgb(221, 221, 221);
 	background-color: #bbb;
 	border-radius: 50%;
 }
@@ -89,12 +110,30 @@ div.stone {
 	z-index: 2;
 }
 
+div.inner {
+	width: 50%;
+	height: 50%;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	border: 1px solid #aaa;
+}
+
 div.pianos {
 	background-color: rgb(140, 140, 197);
 }
 
 div.synths {
 	background-color: white;
+}
+
+div.strings {
+	background-color: green;
 }
 
 input.fader {

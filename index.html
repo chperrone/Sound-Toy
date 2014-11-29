@@ -14,29 +14,38 @@
 
 <div class="container">
 
-<div class="pebble-bucket">
+
+<div id="sequencer">
+	<div class="pebble-bucket">
 
 	<li id="pianos">
-		<div class="stone pianos" data-sound="audio/epiano1.mp3"></div>
-		<div class="stone pianos" data-sound="audio/epiano2.mp3"></div>
-		<div class="stone pianos" data-sound="audio/epiano3.mp3"></div>
-		<div class="stone pianos" data-sound="audio/epiano4.mp3"></div>
-		<div class="stone pianos" data-sound="audio/epiano5.mp3"></div>
+		<div class="stone pianos" data-sound="audio/epiano1.wav"></div>
+		<div class="stone pianos" data-sound="audio/epiano2.wav"></div>
+		<div class="stone pianos" data-sound="audio/epiano3.wav"></div>
+		<div class="stone pianos" data-sound="audio/epiano4.wav"></div>
+		<div class="stone pianos" data-sound="audio/epiano5.wav"></div>
 	</li>
 
 	<li id="synths">
 		<div class="stone synths" data-sound="audio/wubble.wav"></div>
 	</li>
-</div>
 
-<div id="sequencer">
+	<li id="strings">
+		<div class="stone strings" data-sound="audio/string1.wav"></div>
+		<div class="stone strings" data-sound="audio/string2.wav"></div>
+		<div class="stone strings" data-sound="audio/string3.wav"></div>
+		<div class="stone strings" data-sound="audio/string4.wav"></div>
+		<div class="stone strings" data-sound="audio/string5.wav"></div>
+	</li>
+
+</div>
 
 	<div class="bar">
 		<div class="slot droppable" id="pad1" speed="5"></div>
 
 		<div id="controls">
-			<button id="faster">^</button>
-			<button id="slower">v</button>
+			<button class="speed" id="faster">^</button>
+			<button class="speed" id="slower">v</button>
 			<input class="fader" type="range" min="0" max="1" step=".01">
 		</div>
 	</div>
